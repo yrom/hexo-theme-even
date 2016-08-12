@@ -21,7 +21,13 @@
         }
       }
     }
-
+    .home {
+      .post-title {
+        width: 95%;
+        display: inline-block;
+        overflow: hidden;
+      }
+    }
     .archive {
       margin: 4em 1em 5em;
 
