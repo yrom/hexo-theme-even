@@ -50,45 +50,46 @@
   };
 
   Even.toc = function () {
-    var SPACING = 20;
     var $toc = $('.post-toc'),
-        $footer = $('.post-footer');
+      $footer = $('.post-footer');
 
-    if ($toc.length) {
-      var minScrollTop = $toc.offset().top - SPACING;
-      var maxScrollTop = $footer.offset().top - $toc.height() - SPACING;
-
-      var tocState = {
-        start: {
-          'position': 'absolute',
-          'top': minScrollTop
-        },
-        process: {
-          'position': 'fixed',
-          'top': SPACING
-        },
-        end: {
-          'position': 'absolute',
-          'top': maxScrollTop
-        }
-      }
-
-      $(window).scroll(function () {
-        var scrollTop = $(window).scrollTop();
-
-        if (scrollTop < minScrollTop) {
-          $toc.css(tocState.start);
-        } else if (scrollTop > maxScrollTop) {
-          $toc.css(tocState.end);
-        } else {
-          $toc.css(tocState.process);
-        }
-      })
+    if (!$toc.length) {
+      return
     }
+    var SPACING = 20;
+    var minScrollTop = $toc.offset().top - SPACING;
+    var maxScrollTop = $footer.offset().top - $toc.height() - SPACING;
+
+    var tocState = {
+      start: {
+        'position': 'absolute',
+        'top': minScrollTop
+      },
+      process: {
+        'position': 'fixed',
+        'top': SPACING
+      },
+      end: {
+        'position': 'absolute',
+        'top': maxScrollTop
+      }
+    }
+
+    $(window).scroll(function () {
+      var scrollTop = $(window).scrollTop();
+
+      if (scrollTop < minScrollTop) {
+        $toc.css(tocState.start);
+      } else if (scrollTop > maxScrollTop) {
+        $toc.css(tocState.end);
+      } else {
+        $toc.css(tocState.process);
+      }
+    })
 
     var HEADERFIX = 30;
     var $toclink = $('.toc-link'),
-        $headerlink = $('.headerlink');
+      $headerlink = $('.headerlink');
 
     var headerlinkTop = $.map($headerlink, function (link) {
       return $(link).offset().top;
@@ -99,8 +100,8 @@
 
       for (var i = 0; i < $toclink.length; i++) {
         var isLastOne = i + 1 === $toclink.length,
-            currentTop = headerlinkTop[i] - HEADERFIX,
-            nextTop = isLastOne ? Infinity : headerlinkTop[i+1] - HEADERFIX;
+          currentTop = headerlinkTop[i] - HEADERFIX,
+          nextTop = isLastOne ? Infinity : headerlinkTop[i + 1] - HEADERFIX;
 
         if (currentTop < scrollTop && scrollTop <= nextTop) {
           $($toclink[i]).addClass('active');
@@ -112,7 +113,7 @@
   };
 
   Even.fancybox = function () {
-    if ($.fancybox){
+    if ($.fancybox) {
       $('.post').each(function () {
         $(this).find('img').each(function () {
           $(this).wrap('<a class="fancybox" href="' + this.src + '" title="' + this.alt + '"></a>');
@@ -120,8 +121,8 @@
       });
 
       $('.fancybox').fancybox({
-        openEffect	: 'elastic',
-        closeEffect	: 'elastic'
+        openEffect: 'elastic',
+        closeEffect: 'elastic'
       });
     }
   };
