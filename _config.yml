@@ -3,7 +3,7 @@
 # ===========================================
 
 # Site creation time
-since: 2015
+since: 2011
 
 # Custom your favicon.ico in `site/source`
 favicon: /favicon.ico
@@ -19,9 +19,8 @@ rss: default
 menu:
   Home: /
   Archives: /archives/
-  # Tags: /tags
-  # Categories: /categories
-  # About: /about
+  Tags: /tags/
+  About: /guestbook/
 
 # ===========================================
 # Theme Settings
@@ -30,8 +29,8 @@ menu:
 # color: Default | Mint Green | Cobalt Blue | Hot Pink | Dark Violet
 theme:
   color: Default
-  toc: false
-  fancybox: false
+  toc: true
+  fancybox: true
 
 copyright:
   enable: false
@@ -48,14 +47,14 @@ reward:
 # Social links Settings
 # ===========================================
 social:
-  email: your@email.com
+  github: https://github.com/yrom
+  weibo: http://weibo.com/yrom
+  google: https://plus.google.com/+YromWang?rel=author
+  email: hi@yongyong.wang
   stack-overflow:
   twitter:
   facebook:
   linkedin:
-  google:
-  github:
-  weibo:
   zhihu:
   douban:
   pocket:
@@ -71,12 +70,12 @@ baidu_analytics:
 baidu_verification: 
 
 # Google Analytics
-google_analytics:
+google_analytics: UA-37232312-1
 # Google Verification
 google_verification:
 
 # Disqus
-disqus_shortname:
+disqus_shortname: yrom
 
 #Changyan
 changyan:
@@ -86,4 +85,4 @@ changyan:
 # ===========================================
 # Version
 # ===========================================
-version: 2.5.0
+version: 2.5.1
