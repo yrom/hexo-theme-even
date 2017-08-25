@@ -34,5 +34,8 @@
 
     {% include '_script/libs.swig' %}
     {% include '_script/theme.swig' %}
+    {% if not env.debug %}
+      {% include "_script/analytics.swig" %}
+    {% endif %}
   </body>
 </html>
