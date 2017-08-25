@@ -114,15 +114,15 @@
 
   Even.fancybox = function () {
     if ($.fancybox) {
-      $('.post').each(function () {
+      $('.post').each(function (i) {
         $(this).find('img').each(function () {
-          $(this).wrap('<a class="fancybox" href="' + this.src + '" title="' + this.alt + '"></a>');
+          $(this).wrap('<a href="' + this.src + '" data-srcset="'+this.srcset+'" data-caption="' + this.alt + '" data-type="image" data-fancybox="gallery'+i+'"></a>');
         });
       });
 
-      $('.fancybox').fancybox({
-        openEffect: 'elastic',
-        closeEffect: 'elastic'
+      $().fancybox({
+        selector : '[data-fancybox=*"gallery"]',
+        loop: true,
       });
     }
   };

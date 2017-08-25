@@ -23,7 +23,7 @@
 
 {# Fancybox styling #}
 {% if theme.theme.fancybox %}
-  <link rel="stylesheet" type="text/css" href="{{ url_for('lib/fancybox/jquery.fancybox.css') }}" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('lib/fancybox/jquery.fancybox.min.css') }}" />
 {% endif %}
 
 {# Analytics and push #}

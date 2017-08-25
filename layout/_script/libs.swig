@@ -1,15 +1,14 @@
 {% if theme.theme.fancybox %}
-  {% set fancybox_js = 'fancybox/jquery.fancybox.pack.js' %}
+  {% set fancybox_js = 'fancybox/jquery.fancybox.min.js' %}
 {% endif %}
 
 {%
   set js_libs = {
-    jquery: 'jquery/jquery-3.1.1.min.js',
     slideout: 'slideout/slideout.js',
     fancybox: fancybox_js
   }
 %}
-
+<script type=text/javascript src=https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js></script>
 {% for lib in js_libs %}
   {% if lib %}
     <script type="text/javascript" src="{{ url_for('lib') }}/{{ lib }}"></script>
