@@ -116,13 +116,28 @@
     if ($.fancybox) {
       $('.post').each(function (i) {
         $(this).find('img').each(function () {
-          $(this).wrap('<a href="' + this.src + '" data-srcset="'+this.srcset+'" data-caption="' + this.alt + '" data-type="image" data-fancybox="gallery'+i+'"></a>');
+          var is7niu = this.src.indexOf('imageView2/2/w') !== -1
+          var src = this.src
+          var srcset = undefined
+          if (is7niu) {
+            var p = /(imageView2\/2\/w\/)\d+/
+            var set = [1600, 1280, 960, 640]
+            var srcs = []
+            srcset = ''
+            for (var index = 0; index < set.length; index++) {
+              var s = set[index];
+              var l = this.src.replace(p, '$1' + s)
+              srcs.push(l)
+              srcset += l + ' ' + s + 'w'
+              if (index < set.length - 1) {
+                srcset += ', '
+              }
+            }
+            src = srcs[0]
+          }
+          $(this).wrap('<a href="' + src + '" data-caption="' + this.alt + '" data-type="image" data-fancybox="gallery' + i + '"'+(srcset? ' data-srcset="'+srcset+'"': '')+'></a>'
+        );          
         });
-      });
-
-      $().fancybox({
-        selector : '[data-fancybox=*"gallery"]',
-        loop: true,
       });
     }
   };
